@@ -5,11 +5,8 @@ Core implementation of self-supervised tongue-image pretraining and multi-label 
 ## Included implementation
 
 - ViT-Tiny with eleven v2_3 blocks inserted after Transformer blocks 0–10.
-- DINO self-supervised pretraining.
 - End-to-end MLP classification with BCE and a lower backbone learning rate.
 - Checkpoint inference on the six-label test subset.
-
-This export preserves the historical checkpoint implementation, including full block-parameter zero initialization and the inner plus outer residual connections (effective `2*x + F(x)`). It does not silently substitute a later block implementation. Alternative block versions, decoder/ASL ablations, datasets, checkpoints, logs and visualization scripts are not included.
 
 ## Environment
 
