@@ -31,7 +31,7 @@ Keep the original filenames and place all volumes in the same directory. They fo
 7z x /path/to/downloads/dataset.7z.001 -o.
 ```
 
-On Windows, open `dataset.7z.001` with 7-Zip and extract it into the repository root. The resulting structure is:
+The resulting structure is:
 
 ```text
 AdvScan-Tongue/
