@@ -33,9 +33,6 @@ dataset_root/
   test/images/
   test/annotations/test.json
 ```
-
-Training and validation use seven labels. Six-label inference retains the same seven-output checkpoint and selects the six output columns excluding `botaishe`.
-
 The inference dataset root contains `test/images`, `test/annotations/test.json`, `test/classes.txt`, and `manifest.json`. The manifest must contain:
 
 ```json
