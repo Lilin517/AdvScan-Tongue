@@ -1,0 +1,25 @@
+# Data, weights and generated output
+/dataset/
+/datasets/
+/runs/
+/output/
+/outputs/
+/checkpoints/
+/logs/
+*.pth
+*.pt
+*.ckpt
+*.npz
+*.log
+events.out.tfevents.*
+# Runtime and local configuration
+__pycache__/
+*.py[cod]
+.cache/
+.env
+.env.*
+*.pem
+*.key
+# Server-specific provenance and instructions (kept locally)
+/source_manifest.json
+/RUNNING_AND_VERIFICATION.md
