@@ -23,3 +23,8 @@ __pycache__/
 # Server-specific provenance and instructions (kept locally)
 /source_manifest.json
 /RUNNING_AND_VERIFICATION.md
+
+# Published inference checkpoint (tracked with Git LFS)
+!/checkpoints/
+/checkpoints/*
+!/checkpoints/best.pth

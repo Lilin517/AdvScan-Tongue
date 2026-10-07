@@ -16,7 +16,7 @@ The direct dependencies are listed in `requirements.txt`.
 
 ## Data and weights
 
-The dataset is distributed as four split 7-Zip volumes through [GitHub Releases](https://github.com/Lilin517/AdvScan-Tongue/releases). Open the dataset release and download all four assets:
+The dataset is distributed as four split 7-Zip volumes through [GitHub Releases](https://github.com/Lilin517/AdvScan-Tongue/releases). Download `.001`, `.002`, and `.003` from [data](https://github.com/Lilin517/AdvScan-Tongue/releases/tag/data), and `.004` from [data2](https://github.com/Lilin517/AdvScan-Tongue/releases/tag/data2):
 
 ```text
 dataset.7z.001
@@ -104,7 +104,25 @@ for item in test["images"]:
 print(f"Prepared {len(test['images'])} images in {target}")
 ```
 
-Model weights are separate from the dataset archive. The training and inference commands below require the corresponding checkpoint files; replace checkpoint placeholders with their actual local paths.
+### Download the inference checkpoint
+
+The verified epoch-5 checkpoint is available at [`checkpoints/best.pth`](checkpoints/best.pth) and is tracked with Git LFS. It contains the enhanced backbone and MLP classifier used for the inference results below.
+
+Install [Git LFS](https://git-lfs.com/) before cloning, then run:
+
+```bash
+git lfs install
+git clone https://github.com/Lilin517/AdvScan-Tongue.git
+cd AdvScan-Tongue
+git lfs pull --include="checkpoints/best.pth"
+```
+
+If the repository is already cloned, run the final command from its root. Alternatively, use **Download raw file** on the checkpoint's GitHub page and save the downloaded weights as `checkpoints/best.pth`. The complete file is 128,073,711 bytes; a small text pointer is not the model weights.
+
+SHA-256: `44f55e6cada05bcb710946e5b9f21d2b76488e7593033769900ae4738b2f1420`.
+
+This is the final classification checkpoint for inference. The initialization checkpoint required for self-supervised training remains a separate prerequisite and is not included.
+
 
 ## Training
 
@@ -132,7 +150,7 @@ The fixed defaults are 100 pretraining epochs and 50 classification epochs. Clas
 
 ```bash
 python infer.py \
-  --checkpoint /path/to/best.pth \
+  --checkpoint checkpoints/best.pth \
   --dataset_root dataset/test6 \
   --device cuda:0 \
   --batch_size 16
