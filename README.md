@@ -121,7 +121,7 @@ If the repository is already cloned, run the final command from its root. Altern
 
 SHA-256: `44f55e6cada05bcb710946e5b9f21d2b76488e7593033769900ae4738b2f1420`.
 
-This is the final classification checkpoint for inference. The initialization checkpoint required for self-supervised training remains a separate prerequisite and is not included.
+This is the final classification checkpoint for inference.
 
 
 ## Training
@@ -143,8 +143,6 @@ python main.py --phase classifier \
   --source_checkpoint runs/dino_v2_3/checkpoints/best.pth \
   --output_dir runs/mlp_bce_e2e
 ```
-
-The fixed defaults are 100 pretraining epochs and 50 classification epochs. Classification uses a head learning rate of 0.001 and a backbone multiplier of 0.1. Historical initialization checkpoints that serialize custom configuration objects may require their original configuration modules on `PYTHONPATH`. Full retraining of this export has not been verified.
 
 ## Checkpoint inference
 
